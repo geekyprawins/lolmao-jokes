@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:dad_jokes/helpers/api-helper.dart';
 import 'package:dad_jokes/screens/joke_screen.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -30,11 +30,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return ModalProgressHUD(
       inAsyncCall: showSpinner,
       child: Scaffold(
+        backgroundColor: Colors.lightBlueAccent,
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text(
             "Instant Dad Jokes",
-            style: TextStyle(
+            style: GoogleFonts.ibmPlexSerif(
                 fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
           ),
           leading: Hero(
@@ -45,17 +46,25 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        body: Container(
-          color: Colors.lightBlueAccent,
-          padding: EdgeInsets.all(MediaQuery.of(context).size.width / 8),
+        body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text("Missing those pun filled Dad Jokes? Not anymore!"),
-              Text("Click below and enjoy a dad joke!"),
+              Text("Ready to ROFL ? ", style: GoogleFonts.aladin(
+                fontSize: 40,
+                letterSpacing: 2,
+
+
+              ),),
+              Text("Tap the smiley and go on!",
+              style: GoogleFonts.justMeAgainDownHere(
+                fontSize: 30,
+                fontWeight: FontWeight.bold
+
+              ),),
               GestureDetector(
-                child: Image.asset("images/lol-2.gif"),
+                child: Image.asset("images/lol-circle.gif"),
                 onTap: () async {
                   setState(() {
                     showSpinner = true;
